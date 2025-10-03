@@ -33,6 +33,13 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@layer utilities {
+  .text-stroke {
+    -webkit-text-stroke: 2px rgba(0,0,0,0.06);
+    color: transparent;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
