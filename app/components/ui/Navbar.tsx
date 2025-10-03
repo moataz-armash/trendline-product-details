@@ -20,7 +20,7 @@ import {
 } from "@/app/(auth)/lib/navbarData";
 import { classNames } from "@/app/utils/styleClass";
 
-export default function Example() {
+export default function Navbar() {
   return (
     <Disclosure
       as="nav"
