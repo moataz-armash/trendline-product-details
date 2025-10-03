@@ -1,5 +1,6 @@
 import Image from "next/image";
 import headerBG from "@/public/headerBG.png";
+import { ProductSlugTransfer } from "@/app/utils/productSlugTransfer";
 
 export default function Header({
   title = "Product Details",
@@ -35,20 +36,14 @@ export default function Header({
           className="select-none font-extrabold leading-none tracking-tight
             text-stroke
              text-[clamp(1rem,6vw,4rem)] opacity-40">
-          {title
-            .split("-")
-            .map((t) => t.slice(0, 1).toUpperCase() + t.slice(1))
-            .join("-")}
+          {ProductSlugTransfer(title)}
         </span>
       </div>
 
       {/* visible title */}
       <div className="relative z-10 h-full grid place-items-center">
         <h1 className="text-xl sm:text-3xl font-semibold text-gray-900">
-          {title
-            .split("-")
-            .map((t) => t.slice(0, 1).toUpperCase() + t.slice(1))
-            .join("-")}
+          {ProductSlugTransfer(title)}
         </h1>
       </div>
     </section>
