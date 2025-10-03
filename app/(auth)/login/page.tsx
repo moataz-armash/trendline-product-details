@@ -4,9 +4,9 @@ import AuthShell from "@/app/components/forms/AuthShell";
 import SubmitButton from "@/app/components/forms/SubmitButton";
 import { LoginAction } from "./action";
 import { ValidatedInput } from "@/app/components/forms/ValidateInput";
-import { loginSchema, registerSchema } from "@/app/lib/validator";
+import { loginSchema } from "@/app/lib/validator";
 import { loginInputFields } from "../lib/inputFields";
-import { api, ENDPOINT_LOGIN, ENDPOINT_REGISTER } from "@/app/types/auth";
+import { api, ENDPOINT_LOGIN } from "@/app/lib/api";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 

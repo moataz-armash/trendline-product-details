@@ -6,7 +6,7 @@ import { RegisterAction } from "./action";
 import { ValidatedInput } from "@/app/components/forms/ValidateInput";
 import { registerSchema } from "@/app/lib/validator";
 import { registerInputfields } from "../lib/inputFields";
-import { api, ENDPOINT_REGISTER } from "@/app/types/auth";
+import { api, ENDPOINT_REGISTER } from "@/app/lib/api";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 

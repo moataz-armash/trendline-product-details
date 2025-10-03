@@ -6,7 +6,7 @@ import { VerifyState } from "./action";
 import SubmitButton from "@/app/components/forms/SubmitButton";
 import { verifySchema } from "@/app/lib/validator";
 import toast from "react-hot-toast";
-import { api, ENDPOINT_RESEND, ENDPOINT_VERIFY } from "@/app/types/auth";
+import { api, ENDPOINT_RESEND, ENDPOINT_VERIFY } from "@/app/lib/api";
 import { useRouter } from "next/navigation";
 import { ValidatedInput } from "@/app/components/forms/ValidateInput";
 
