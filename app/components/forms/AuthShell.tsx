@@ -14,7 +14,7 @@ export default function AuthShell({
 }) {
   return (
     <main className="min-h-screen grid place-items-center px-4">
-      <div className="w-full max-w-md">
+      <div className="w-full max-w-xl">
         <div className="bg-white shadow-sm border border-gray-200 rounded-2xl p-6 sm:p-8">
           <div className="mb-6 text-center">
             <h1 className="text-2xl font-semibold tracking-tight text-black">

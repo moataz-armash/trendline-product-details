@@ -1,52 +1,29 @@
 "use client";
 import { useActionState, useState } from "react";
 import AuthShell from "@/app/components/forms/AuthShell";
-// import { Input, Label, ErrorText } from "../_components/Field";
 import SubmitButton from "@/app/components/forms/SubmitButton";
 import { RegisterAction } from "./action";
 import { ValidatedInput } from "@/app/components/forms/ValidateInput";
 import { registerSchema } from "@/app/lib/validator";
-import { registerInputfields } from "../lib/registerInputfields";
+import { registerInputfields } from "../lib/inputFields";
 import { api, ENDPOINT_REGISTER } from "@/app/types/auth";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 
-type MessageState = "idle" | "loading" | "success" | "error";
-
 export default function RegisterPage() {
   const [loading, setLoading] = useState(false);
-  const [messageState, setMessageState] = useState<MessageState>("idle");
-  const [error, setError] = useState("");
   const [wasSubmitted, setWasSubmitted] = useState(false);
   const [state, action, isPending] = useActionState(RegisterAction, {});
   const router = useRouter();
 
-  // const onSubmit = async (data: RegisterForm) => {
-  //   try {
-  //     setLoading(true);
-  //     const res = await api.post(ENDPOINT_REGISTER, data);
-  //     // Optionally, your API might return { email } or user info
-  //     const email = res?.data?.email || data.email;
-  //     sessionStorage.setItem("pendingEmail", email);
-  //     router.push("/verify");
-  //   } catch (e: any) {
-  //     const msg = e?.response?.data?.message || "Registration failed";
-  //     setError("root" as any, { type: "server", message: msg });
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setWasSubmitted(true);
-    setMessageState("loading");
     const form = e.currentTarget;
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
     const validationResult = registerSchema.safeParse(data);
     if (!validationResult.success) {
-      setMessageState("error");
       return;
     }
 
@@ -54,15 +31,14 @@ export default function RegisterPage() {
       setLoading(true);
       const res = await api.post(ENDPOINT_REGISTER, data);
       localStorage.setItem("token", res.data.data.token);
+      localStorage.setItem("name", res.data.data.name);
       console.log(res);
       form.reset();
       setWasSubmitted(false);
-      setMessageState("success");
       toast.success(res?.data?.message);
       router.push("/verify");
     } catch (e: any) {
       toast.error(e?.response?.data?.message || "Registeration Failed");
-      setMessageState("error");
     } finally {
       setLoading(false);
     }
@@ -74,21 +50,21 @@ export default function RegisterPage() {
         onSubmit={handleSubmit}
         action={action}
         noValidate
-        className="space-y-4 grid grid-cols-2 gap-8">
+        className="space-y-4 gap-8">
         {registerInputfields.map(({ id, name }) => (
-          <div key={id}>
+          <div key={id} className="grid grid-cols-1">
             <label className="mb-1 block text-sm font-light text-black">
               {name.slice(0, 1).toUpperCase() + name.slice(1, name.length)}{" "}
               <span className="text-red-500">*</span>
             </label>
             <ValidatedInput
-              type={name}
+              type={name === "password_confirmation" ? "password" : name}
               name={name}
               fieldSchema={registerSchema.shape[name]}
               wasSubmitted={wasSubmitted}
               defaultValue={state.form?.[name]}
               errors={state.errors?.[name]}
-              className="border border-black rounded-xl placeholder:text-black text-black px-1"
+              className="border border-black rounded-md placeholder:text-black text-black px-1"
             />
           </div>
         ))}

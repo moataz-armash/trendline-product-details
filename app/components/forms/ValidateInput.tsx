@@ -34,7 +34,7 @@ const ValidatedInput = ({
         {...props}
       />
       {shouldRenderErrors && (
-        <span className="text-xs text-red-500">{fieldErrors}</span>
+        <div className="text-xs text-red-500">{fieldErrors}</div>
       )}
     </>
   );

@@ -9,7 +9,7 @@ export default function SubmitButton({
     <button
       type="submit"
       disabled={!!loading}
-      className="w-full col-span-2 inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 text-white text-sm font-medium px-4 py-2.5 hover:bg-black disabled:opacity-60 disabled:cursor-not-allowed">
+      className="w-full col-span-2 inline-flex items-center justify-center gap-2 rounded-lg bg-gray-900 text-white text-sm font-medium px-4 py-2.5 hover:bg-black disabled:opacity-60 disabled:cursor-not-allowed cursor-pointer">
       {loading && (
         <svg className="h-4 w-4 animate-spin" viewBox="0 0 24 24" fill="none">
           <circle

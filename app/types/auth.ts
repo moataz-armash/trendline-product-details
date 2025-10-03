@@ -9,7 +9,8 @@ export const api = axios.create({
 
 export const ENDPOINT_REGISTER = "/auth/register";
 export const ENDPOINT_LOGIN = "/auth/login";
-export const ENDPOINT_VERIFY = "/auth/verify";
+export const ENDPOINT_VERIFY = "/auth/verify-email";
+export const ENDPOINT_RESEND = "/auth/verify-email/resend-code";
 
 api.interceptors.request.use((config) => {
   if (typeof window !== "undefined") {

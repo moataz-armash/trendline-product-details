@@ -43,7 +43,7 @@ export type RegisterActionState = {
 };
 
 export const loginSchema = z.object({
-  email: z.string().email(),
+  email: z.string().email().trim(),
   password: z.string().min(8),
 });
 
@@ -54,8 +54,8 @@ export type LoginActionState = {
   };
 
   errors?: {
-    email?: string;
-    password?: string;
+    email?: string[];
+    password?: string[];
   };
 };
 
