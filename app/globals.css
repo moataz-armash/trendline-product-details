@@ -9,10 +9,9 @@
   /* colors */
   --color-black-200: rgba(138, 138, 138, 1);
   --color-black-500: rgba(2, 2, 2, 1);
-  --color-grey-100: rgba(196, 196, 196, 1) 
+  --color-grey-100: rgba(196, 196, 196, 1);
   --color-brand-800: #be968e;
   --color-brand-500: rgba(190, 150, 142, 0.4);
-
 
   /* fonts */
   --font-poppins: Poppins, sans-serif;
@@ -35,7 +34,7 @@
 
 @layer utilities {
   .text-stroke {
-    -webkit-text-stroke: 2px rgba(0,0,0,0.06);
+    -webkit-text-stroke: 2px rgba(0, 0, 0, 0.06);
     color: transparent;
   }
 }
@@ -52,7 +51,7 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans);
 
-   font-size: var(--text-base-size);
+  font-size: var(--text-base-size);
   line-height: var(--text-base-line);
   font-weight: var(--font-weight-normal);
 }

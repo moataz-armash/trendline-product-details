@@ -2,6 +2,7 @@ import Breadcrumb from "@/app/components/ui/BreadCrumb";
 import Header from "../../components/ui/Header";
 import Navbar from "../../components/ui/Navbar";
 import { ProductSlugTransfer } from "@/app/utils/productSlugTransfer";
+import ProductDetails from "@/app/components/ProductDetails";
 
 const crumbs = [
   { label: "Home", href: "/" },
@@ -22,6 +23,7 @@ export default function Page({
       <Navbar />
       <Header title={productSlug} />
       <Breadcrumb items={crumbs} />
+      <ProductDetails />
     </>
   );
 }
