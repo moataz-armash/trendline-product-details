@@ -23,7 +23,7 @@ export default function Page({
       <Navbar />
       <Header title={productSlug} />
       <Breadcrumb items={crumbs} />
-      <ProductDetails />
+      <ProductDetails productSlug={productSlug} />
     </>
   );
 }

@@ -15,10 +15,10 @@ export default function ProductGallery({ images }: { images: Img[] }) {
   const thumbs = total <= 3 ? images : images.slice(1, 3);
 
   return (
-    <div className="w-full">
+    <div className="w-full flex-1">
       {/* Main image */}
       <div className="relative overflow-hidden rounded-3xl bg-gray-100">
-        <div className="relative aspect-[4/5]">
+        <div className="relative aspect-[6/5]">
           <Image
             key={images[index]?.alt}
             src={images[index]?.src}

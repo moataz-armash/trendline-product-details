@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -7,8 +8,13 @@
 
 @theme {
   /* colors */
-  --color-black-200: rgba(138, 138, 138, 1);
   --color-black-500: rgba(2, 2, 2, 1);
+  --color-black-300: rgba(84, 84, 84, 1);
+
+  --color-black-200: rgba(138, 138, 138, 1);
+  --color-black-100: rgba(51, 51, 51, 1);
+  --color-black-50: rgba(230, 230, 230, 1);
+
   --color-grey-100: rgba(196, 196, 196, 1);
   --color-brand-800: #be968e;
   --color-brand-500: rgba(190, 150, 142, 0.4);
