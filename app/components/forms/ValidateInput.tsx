@@ -1,11 +1,25 @@
 import { useState, useCallback } from "react";
+import { ZodString } from "zod";
 
 const ValidatedInput = ({
   name,
   wasSubmitted,
   errors,
   fieldSchema,
+  defaultValue,
+  className,
+  inputMode,
+
   ...props
+}: {
+  name: string;
+  wasSubmitted: boolean;
+  errors: any;
+  fieldSchema: ZodString;
+  defaultValue?: string;
+  className?: string;
+  inputMode?: string;
+  type?: string;
 }) => {
   const [value, setValue] = useState("");
   const [touched, setTouched] = useState(false);
@@ -21,7 +35,7 @@ const ValidatedInput = ({
   const shouldRenderErrors = errors || wasSubmitted || touched;
 
   const handleBlur = () => setTouched(true);
-  const handleChange = (e) => setValue(e.currentTarget.value);
+  const handleChange = (e: any) => setValue(e.currentTarget.value);
 
   return (
     <>
@@ -30,6 +44,7 @@ const ValidatedInput = ({
         name={name}
         onBlur={handleBlur}
         onChange={handleChange}
+        defaultValue={defaultValue}
         className={fieldErrors.length > 0 ? "border-red-500" : ""}
         {...props}
       />

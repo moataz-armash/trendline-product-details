@@ -45,6 +45,9 @@ export default function RegisterPage() {
     }
   };
 
+  type loginShape = typeof loginSchema.shape;
+  type loginField = keyof loginShape;
+
   return (
     <AuthShell title="Welcome back" subtitle="Log in to your account">
       <form
@@ -61,10 +64,10 @@ export default function RegisterPage() {
             <ValidatedInput
               type={name}
               name={name}
-              fieldSchema={loginSchema.shape[name]}
+              fieldSchema={loginSchema.shape[name as loginField]}
               wasSubmitted={wasSubmitted}
-              defaultValue={state.form?.[name]}
-              errors={state.errors?.[name]}
+              defaultValue={state.form?.[name as loginField]}
+              errors={state.errors?.[name as loginField]}
               className="border border-black rounded-md placeholder:text-black text-black px-1"
             />
           </div>

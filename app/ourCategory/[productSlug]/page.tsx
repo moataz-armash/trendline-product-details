@@ -5,17 +5,20 @@ import { ProductSlugTransfer } from "@/app/utils/productSlugTransfer";
 import ProductDetails from "@/app/components/ProductDetails";
 import RatingReviews from "@/app/components/RatingReviews";
 import Footer from "@/app/components/Footer";
+import SimilarItems from "@/app/components/SimilarItems";
+import { MOCK } from "@/app/lib/mockProducts";
 
 const baseCrumbs = [
   { label: "Home", href: "/" },
   { label: "Our Category", href: "/ourCategory" },
 ];
 
-export default function Page({
-  params: { productSlug },
+export default async function Page({
+  params,
 }: {
   params: { productSlug: string };
 }) {
+  const productSlug = await params.productSlug;
   const crumbs = [
     ...baseCrumbs,
     {
@@ -31,6 +34,7 @@ export default function Page({
       <Breadcrumb items={crumbs} />
       <ProductDetails productSlug={productSlug} />
       <RatingReviews />
+      <SimilarItems items={MOCK} />
       <Footer />
     </>
   );

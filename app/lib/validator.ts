@@ -68,6 +68,6 @@ export type VerifyActionState = {
     code?: string;
   };
   errors?: {
-    code?: string;
+    code?: string[];
   };
 };

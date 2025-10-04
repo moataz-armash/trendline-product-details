@@ -44,6 +44,9 @@ export default function RegisterPage() {
     }
   };
 
+  type registerShape = typeof registerSchema.shape;
+  type field = keyof registerShape;
+
   return (
     <AuthShell title="Create your account" subtitle="Register to continue">
       <form
@@ -60,10 +63,10 @@ export default function RegisterPage() {
             <ValidatedInput
               type={name === "password_confirmation" ? "password" : name}
               name={name}
-              fieldSchema={registerSchema.shape[name]}
+              fieldSchema={registerSchema.shape[name as field]}
               wasSubmitted={wasSubmitted}
-              defaultValue={state.form?.[name]}
-              errors={state.errors?.[name]}
+              defaultValue={state.form?.[name as field]}
+              errors={state.errors?.[name as field]}
               className="border border-black rounded-md placeholder:text-black text-black px-1"
             />
           </div>
