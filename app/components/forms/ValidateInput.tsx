@@ -18,7 +18,16 @@ const ValidatedInput = ({
   fieldSchema: ZodString;
   defaultValue?: string;
   className?: string;
-  inputMode?: string;
+  inputMode?:
+    | "search"
+    | "text"
+    | "none"
+    | "tel"
+    | "url"
+    | "email"
+    | "numeric"
+    | "decimal"
+    | undefined;
   type?: string;
 }) => {
   const [value, setValue] = useState("");
@@ -45,7 +54,8 @@ const ValidatedInput = ({
         onBlur={handleBlur}
         onChange={handleChange}
         defaultValue={defaultValue}
-        className={fieldErrors.length > 0 ? "border-red-500" : ""}
+        inputMode={inputMode ? inputMode : "text"}
+        className={className}
         {...props}
       />
       {shouldRenderErrors && (
