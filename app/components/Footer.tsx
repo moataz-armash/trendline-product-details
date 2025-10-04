@@ -19,7 +19,7 @@ export default function Footer() {
           aria-hidden
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-6 gap-12 mx-auto max-w-7xl px-4 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-4 md:gap-12 mx-auto max-w-7xl px-4 items-start">
           {/* Brand + blurb */}
           <div className="max-w-xl col-span-2">
             <Image

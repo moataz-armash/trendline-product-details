@@ -12,11 +12,21 @@ import favorite from "@/public/rightSideIcons/love.svg";
 const languages = ["EN", "AR", "TR"];
 
 const navigation: NavItem[] = [
-  { name: "Home", href: "#", current: true, icon: homeIcon },
-  { name: "Our Category", href: "#", current: false, icon: ourCategoryIcon },
-  { name: "About Us", href: "#", current: false, icon: aboutUsIcon },
-  { name: "Contact Us", href: "#", current: false, icon: contactUsIcon },
-  { name: "FAQs", href: "#", current: false, icon: faqsIcon },
+  { name: "Home", href: "/", current: true, icon: homeIcon },
+  {
+    name: "Our Category",
+    href: "/ourCategory",
+    current: false,
+    icon: ourCategoryIcon,
+  },
+  { name: "About Us", href: "/aboutus", current: false, icon: aboutUsIcon },
+  {
+    name: "Contact Us",
+    href: "/contactus",
+    current: false,
+    icon: contactUsIcon,
+  },
+  { name: "FAQs", href: "/faqs", current: false, icon: faqsIcon },
 ];
 
 const rightSideIcons: RightSideIcon[] = [

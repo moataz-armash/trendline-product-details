@@ -6,7 +6,7 @@ import ProductDetails from "@/app/components/ProductDetails";
 import RatingReviews from "@/app/components/RatingReviews";
 import Footer from "@/app/components/Footer";
 
-const crumbs = [
+const baseCrumbs = [
   { label: "Home", href: "/" },
   { label: "Our Category", href: "/ourCategory" },
 ];
@@ -16,10 +16,14 @@ export default function Page({
 }: {
   params: { productSlug: string };
 }) {
-  crumbs.push({
-    label: ProductSlugTransfer(productSlug),
-    href: `/${productSlug}`,
-  });
+  const crumbs = [
+    ...baseCrumbs,
+    {
+      label: ProductSlugTransfer(productSlug),
+      href: `/${productSlug}`,
+    },
+  ];
+
   return (
     <>
       <Navbar />

@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function ContactUs({ className = "" }: { className?: string }) {
   const icons = [
     { alt: "phone", src: "/footer/phone.svg", title: "+87 01928491" },
-    { alt: "email", src: "/footer/email.svg", title: " Named@gmail.com" },
+    { alt: "email", src: "/footer/email.svg", title: "Named@gmail.com" },
     { alt: "map", src: "/footer/map.svg", title: "381, cairo, egypt" },
   ];
   return (
