@@ -1,37 +1,14 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { ChevronDown, Heart, Plus } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { ProductSlugTransfer } from "../utils/productSlugTransfer";
 import Image from "next/image";
 import bagAddIcon from "@/public/bag-add.svg";
 import favorite from "@/public/love.svg";
 import bagButton from "@/public/shopping bag.svg";
-
-type Option = { label: string; value: string };
-type ColorOption = { name: string; hex: string };
-
-const TYPES: Option[] = [
-  { label: "Cotton", value: "cotton" },
-  { label: "Polyester", value: "poly" },
-  { label: "Linen", value: "linen" },
-];
-
-const SIZES: Option[] = [
-  { label: "S", value: "S" },
-  { label: "M", value: "M" },
-  { label: "L", value: "L" },
-  { label: "XL", value: "XL" },
-  { label: "2XL", value: "2XL" },
-];
-
-const COLORS: ColorOption[] = [
-  { name: "Red", hex: "#ef233c" },
-  { name: "Blue", hex: "#cde0ef" }, // active in mock
-  { name: "Khaki", hex: "#b19b63" },
-  { name: "Denim", hex: "#7aa0d6" },
-  { name: "Gray", hex: "#6b7280" },
-];
+import { COLORS, SIZES, TYPES } from "../lib/productDescription";
+import { ColorOption, Option } from "../types/productDescription";
 
 export default function ProductDescription({
   productSlug,
@@ -226,7 +203,7 @@ export default function ProductDescription({
 
           {/* CTA */}
           <button
-            className="ml-auto inline-flex items-center justify-center gap-2 rounded-2xl bg-brand-800 px-6 py-4 w-[80%] mx-auto md:w-[50%] text-white transition hover:brightness-95"
+            className="ml-auto inline-flex items-center justify-center gap-2 rounded-2xl bg-brand-800 px-6 py-4 w-[60%] mx-auto md:w-[50%] text-white transition hover:brightness-95"
             aria-label="Add to cart">
             Add To Cart
             <Image

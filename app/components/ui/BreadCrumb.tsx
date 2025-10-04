@@ -7,7 +7,7 @@ export default function Breadcrumb({ items }: { items: Crumb[] }) {
   return (
     <nav
       aria-label="Breadcrumb"
-      className="py-2 mx-auto max-w-7xl px-6 sm:px-6 lg:px-8">
+      className="py-8 mx-auto max-w-7xl px-6 sm:px-6 lg:px-8">
       <ol className="flex items-center text-sm">
         {items.map((item, i) => {
           const isLast = i === items.length - 1;
